@@ -1,0 +1,15 @@
+Approach - Use Priority Queue
+
+int kthSmallest(int arr[], int l, int r, int k) {
+        //code here
+        priority_queue<int> pq;
+        for(int i=0;i<=r;i++){
+            pq.push(-arr[i]);
+        }
+        int cnt=0;
+        while(cnt!=k-1){
+            pq.pop();
+            cnt++;
+        }
+        return -pq.top();
+    }
