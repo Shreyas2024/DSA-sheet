@@ -1,0 +1,77 @@
+Approach 1 : Sort the array
+Time Complexity: O(n*log(n))
+
+Approach 2 : Partitioning the array
+
+void rearrange(int arr[], int n)
+{
+    int j = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < 0) {
+            if (i != j)
+                swap(arr[i], arr[j]);
+            j++;
+        }
+    }
+}
+
+Time complexity: O(N) 
+
+Approach 3 : Two Pointer
+
+void shiftall(int arr[], int left,
+              int right)
+{
+   
+  // Loop to iterate over the
+  // array from left to the right
+  left = 0, right = arr.size()-1;
+  while (left<=right)
+  {
+    // Condition to check if the left
+    // and the right elements are
+    // negative
+    if (arr[left] < 0 && arr[right] < 0)
+      left+=1;
+     
+    // Condition to check if the left
+    // pointer element is positive and
+    // the right pointer element is negative
+    else if (arr[left]>0 && arr[right]<0)
+    {
+      int temp=arr[left];
+      arr[left]=arr[right];
+      arr[right]=temp;
+      left+=1;
+      right-=1;
+    }
+     
+    // Condition to check if both the
+    // elements are positive
+    else if (arr[left]>0 && arr[right] >0)
+      right-=1;
+    else{
+      left += 1;
+      right -= 1;
+    }
+  }
+}
+
+Time Complexity: O(N)
+
+Approach 3 : Dutch National Flag Algo
+
+void reArrange(int arr[],int n){
+      int low =0,high = n-1;
+      while(low<high){
+      if(arr[low]<0){
+          low++;
+      }else if(arr[high]>0){
+          high--;
+      }else{
+        swap(arr[low],arr[high]);
+      }
+    }
+}
+
+Time complexity: O(N) 
