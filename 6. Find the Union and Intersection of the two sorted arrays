@@ -1,0 +1,36 @@
+A. Union of two arrays
+
+int doUnion(int a[], int n, int b[], int m)  {
+        //code here
+        set<int> s;
+        for(int i=0;i<n;i++){
+            s.insert(a[i]);
+        }
+        for(int i=0;i<m;i++){
+            s.insert(b[i]);
+        }
+        for(auto x:s){
+            cout<<x<<" ";
+        }
+        cout<<endl;
+        return s.size();
+    }
+
+B. Intersection of two arrays
+
+int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
+        // Your code goes here
+        int count=0;
+        unordered_map<int,int>mp;
+        for(int i=0;i<n;i++){
+            mp[a[i]]=1;
+        }
+        for(int i=0;i<m;i++){
+            if(mp[b[i]]==1){
+                mp[b[i]]=0;
+                cout<<b[i]<<" ";
+                count++;
+            }
+        }
+        return count;
+    }
